@@ -20,44 +20,110 @@ package com.example.demo;
 
 //Imports for javafx
 
+//imported the javafx application package
 import javafx.application.Application;
+
+//imported the javafx action event package
 import javafx.event.ActionEvent;
+
+//imported the javafx event.eventhandler package
 import javafx.event.EventHandler;
+
+//imported the javafx.geometry.hpos package
 import javafx.geometry.HPos;
+
+//imported the javafx.geometry.insets package
 import javafx.geometry.Insets;
+
+//imported the javafx.geometry.Pos package
 import javafx.geometry.Pos;
+
+//imported the javafx.scene.Parent package
 import javafx.scene.Parent;
+
+//imported the javafx.scene.Scene package
 import javafx.scene.Scene;
+
+//imported the javafx.scene.Node package
 import javafx.scene.Node;
+
+//imported the javafx.scene.group package
 import javafx.scene.Group;
+
+//imported the javafx.scene.control package
 import javafx.scene.control.Alert;
+
+//imported the javafx.scene.control package
 import javafx.scene.control.Alert.AlertType;
+
+//imported the javafx.scene.control package
 import javafx.scene.control.*;
+
+//imported the javafx.scene.layout package
 import javafx.scene.layout.*;
+
+//imported the javafx.scene.Rectangle package
 import javafx.scene.shape.Rectangle;
+
+//imported the javafx.scene.text package
 import javafx.scene.text.Font;
+
+//imported the javafx.scene.text package
 import javafx.scene.text.FontWeight;
+
+//imported the javafx.scene.image package
 import javafx.scene.image.Image;
+
+//imported the javafx.scene.stage package
 import javafx.stage.Stage;
+
+//imported the javafx.scene.window package
 import javafx.stage.Window;
 
 //Imports for Java Mail API
 
+//imported the javax.mail.message package from the Java Mail Api
 import javax.mail.Message;
+
+//imported the javax.mail.MessagingException package from the Java Mail Api
 import javax.mail.MessagingException;
+
+//imported the javax.mail.PasswordAuthentication package from the Java Mail Api
 import javax.mail.PasswordAuthentication;
+
+//imported the javax.mail.Session package from the Java Mail Api
 import javax.mail.Session;
+
+//imported the javax.mail.Transport package from the Java Mail Api
 import javax.mail.Transport;
+
+//imported the javax.mail.InternetAddress package from the Java Mail Api
 import javax.mail.internet.InternetAddress;
+
+//imported the javax.mail.internet.MimeMessage package from the Java Mail Api
 import javax.mail.internet.MimeMessage;
+
+//imported the javafx.scene.control package
 import javafx.scene.control.Button;
+
+//imported the javafx.scene.control package
 import javafx.scene.control.TextField;
+
+//imported the javafx.scene.control package
 import javafx.scene.layout.GridPane;
 
 //Java util imports
+
+//imported the java.util.Properties package
 import java.util.Properties;
+
+//imported the java.util.ArrayList package
 import java.util.ArrayList;
+
+//imported the  java.util.function package
 import java.util.function.*;
+
+//imported the java.util.prefs package
 import java.util.prefs.Preferences;
 
 
@@ -70,7 +136,7 @@ import java.io.*;
 // Created the program's Class
 // Declared it public class
 public class BulldogMailroomEmailingSystem extends Application
-    {
+{
 
     //Email for Mailroom
 
@@ -168,30 +234,34 @@ public class BulldogMailroomEmailingSystem extends Application
         //We close our Buffered Reader
         read.close();
 
-    //END OF readStudents method
+        //END OF readStudents method
     }
 
 
     //This method is created to retrieve the students' email at the time of emailing
-    public String getEmail(String firstname, String lastname){
+    public String getEmail(String firstname, String lastname)
+    {
 
         //An integer variable is created
         int i;
 
         //A for loop is created to go through the elements of the 'students' array and search for the students' email
-        for(i = 0; i < students.size(); i++){
+        for(i = 0; i < students.size(); i++)
+        {
 
             //if the firstname and lastname are the same as the elements of the array, the appropriate email is retrieved
             if(firstname.equalsIgnoreCase(students.get(i).firstname) &&
-                    lastname.equalsIgnoreCase(students.get(i).lastname)) {
+                    lastname.equalsIgnoreCase(students.get(i).lastname))
+            {
                 break;
             }
 
-        //END of for loop
+            //END of for loop
         }
         //If the firstname and lastname are not found on the same line, it means there's either a typo,
         // or the student doesn't exist in the database
-        if(i == students.size()){
+        if(i == students.size())
+        {
 
             //Returns Null
             //Null value will be recalled later in code
@@ -200,7 +270,8 @@ public class BulldogMailroomEmailingSystem extends Application
         }
 
         //Else, the appropriate email is retrieved
-        else{
+        else
+        {
 
             //Returns appropriate String value
             return students.get(i).email;
@@ -211,7 +282,8 @@ public class BulldogMailroomEmailingSystem extends Application
     }
 
     //Method to add Students if they are not available
-    public void addStudents(String firstName, String lastName, String email) throws IOException{
+    public void addStudents(String firstName, String lastName, String email) throws IOException
+    {
 
         //Creates String Variable
         String filename;
@@ -238,11 +310,13 @@ public class BulldogMailroomEmailingSystem extends Application
         details = bufferedReader.readLine();
 
         //While Loop to Read Through Exisiting File and Add additional Students
-        while(true){
+        while(true)
+        {
             //System.out.println(details);
 
             //If Line is empty...
-            if(details == null){
+            if(details == null)
+            {
 
                 //Create FileWriter Variable
                 FileWriter fw;
@@ -263,7 +337,7 @@ public class BulldogMailroomEmailingSystem extends Application
                 out = new PrintWriter(bw);
 
                 //Skips the side of the first Line
-                out.println(" ");
+                //out.println(" ");
 
                 //Prints Necessary String on the Next Line
                 out.print(firstName + "," + lastName + "," + email);
@@ -316,10 +390,11 @@ public class BulldogMailroomEmailingSystem extends Application
         //Displays primary Stage
         primaryStage.show();
 
-    //END OF THE start method
+        //END OF THE start method
     }
 
-    private GridPane loginPane() {
+    private GridPane loginPane()
+    {
         // Instantiate a new Grid Pane
         // Gridpane variable is created
         GridPane gridPane;
@@ -344,12 +419,15 @@ public class BulldogMailroomEmailingSystem extends Application
         // columnOneConstraints will be applied to all the nodes placed in column one.
         ColumnConstraints columnOneConstraints;
         columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
+
+        //Horizontal Alignment for First Column Constraint
         columnOneConstraints.setHalignment(HPos.RIGHT);
 
         // columnTwoConstraints will be applied to all the nodes placed in column two.
         ColumnConstraints columnTwoConstrains;
         columnTwoConstrains = new ColumnConstraints(200,200, Double.MAX_VALUE);
 
+        //Set possible extensions for Horizontal Growth of column
         columnTwoConstrains.setHgrow(Priority.ALWAYS);
 
         //Add Column constraints to GridPane
@@ -561,6 +639,8 @@ public class BulldogMailroomEmailingSystem extends Application
                 //Set Scene for new window
                 window.setScene(scene);
 
+
+
                 //Displays new window
                 window.show();
             }
@@ -610,7 +690,7 @@ public class BulldogMailroomEmailingSystem extends Application
         //Return Statement
         return gridPane;
 
-    //END of the GridPane method
+        //END of the GridPane method
     }
 
     //UI method is created to implement
@@ -621,7 +701,7 @@ public class BulldogMailroomEmailingSystem extends Application
         Label headerLabel;
 
         //The label is initialized
-        headerLabel = new Label("Bulldog Mailroom Emailing System Application");
+        headerLabel = new Label("Bulldog Mailroom Notification System");
         headerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
 
         //Label is added to GridPane
@@ -791,7 +871,7 @@ public class BulldogMailroomEmailingSystem extends Application
 
                 //If email cannot be found, or is missing in database, break operation and alert
                 if (getEmail(firstNameField.getText(), lastNameField.getText()) == null) {
-                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Email not found! Confirm First or Last name.");
+                    showAlert(Alert.AlertType.ERROR, gridPane.getScene().getWindow(), "Form Error!", "Student not found!");
                     return;
                 }
 
@@ -987,359 +1067,362 @@ public class BulldogMailroomEmailingSystem extends Application
         });
     }
 
-        //Add Sudent Method
-        //Return Value is a GridPane
-        private GridPane addStudentPrompt(){
+    //Add Sudent Method
+    //Return Value is a GridPane
+    private GridPane addStudentPrompt(){
 
-            // Instantiate a new Grid Pane
-            // GridPane variable is created
-            GridPane myGrid;
+        // Instantiate a new Grid Pane
+        // GridPane variable is created
+        GridPane myGrid;
 
-            //GridPane is initialized
-            myGrid = new GridPane();
+        //GridPane is initialized
+        myGrid = new GridPane();
 
-            // Position the pane at the center of the screen, both vertically and horizontally
-            myGrid.setAlignment(Pos.CENTER);
+        // Position the pane at the center of the screen, both vertically and horizontally
+        myGrid.setAlignment(Pos.CENTER);
 
-            // Set a padding of 40px on each side
-            myGrid.setPadding(new Insets(40, 40, 40, 40));
+        // Set a padding of 40px on each side
+        myGrid.setPadding(new Insets(40, 40, 40, 40));
 
-            // Set the horizontal gap between columns
-            myGrid.setHgap(10);
+        // Set the horizontal gap between columns
+        myGrid.setHgap(10);
 
-            // Set the vertical gap between rows
-            myGrid.setVgap(10);
+        // Set the vertical gap between rows
+        myGrid.setVgap(10);
 
-            // Add Column Constraints
+        // Add Column Constraints
 
-            // columnOneConstraints will be applied to all the nodes placed in column one.
-            ColumnConstraints columnOneConstraints;
-            columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
-            columnOneConstraints.setHalignment(HPos.RIGHT);
+        // columnOneConstraints will be applied to all the nodes placed in column one.
+        ColumnConstraints columnOneConstraints;
+        columnOneConstraints = new ColumnConstraints(100, 100, Double.MAX_VALUE);
+        columnOneConstraints.setHalignment(HPos.RIGHT);
 
-            // columnTwoConstraints will be applied to all the nodes placed in column two.
-            ColumnConstraints columnTwoConstrains;
-            columnTwoConstrains = new ColumnConstraints(200, 200, Double.MAX_VALUE);
+        // columnTwoConstraints will be applied to all the nodes placed in column two.
+        ColumnConstraints columnTwoConstrains;
+        columnTwoConstrains = new ColumnConstraints(200, 200, Double.MAX_VALUE);
 
-            columnTwoConstrains.setHgrow(Priority.ALWAYS);
+        columnTwoConstrains.setHgrow(Priority.ALWAYS);
 
-            //Add Column constraints to GridPane
-            myGrid.getColumnConstraints().addAll(columnOneConstraints, columnTwoConstrains);
+        //Add Column constraints to GridPane
+        myGrid.getColumnConstraints().addAll(columnOneConstraints, columnTwoConstrains);
 
-            //Return Statement
-            return myGrid;
+        //Return Statement
+        return myGrid;
 
-            //END of the Add STudent Prompt method
-        }
+        //END of the Add STudent Prompt method
+    }
 
-        //UI method is created to implement the Add Student Method
-        //Sets UI COntrols
-        private void myUIControls (GridPane myGrid) {
+    //UI method is created to implement the Add Student Method
+    //Sets UI COntrols
+    private void myUIControls (GridPane myGrid) {
 
-            // Add Heading
-            //A Label variable is created
-            Label headingLabel;
+        // Add Heading
+        //A Label variable is created
+        Label headingLabel;
 
-            //The label is initialized
-            headingLabel = new Label("Add a Student");
+        //The label is initialized
+        headingLabel = new Label("Add a Student");
 
-            //Label font is set using CSS
-            headingLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        //Label font is set using CSS
+        headingLabel.setFont(Font.font("Arial", FontWeight.BOLD, 24));
 
-            //Label is added to GridPane
-            myGrid.add(headingLabel, 0, 0, 2, 1);
+        //Label is added to GridPane
+        myGrid.add(headingLabel, 0, 0, 2, 1);
 
-            //Label Horizontal Alignment is set
-            GridPane.setHalignment(headingLabel, HPos.CENTER);
+        //Label Horizontal Alignment is set
+        GridPane.setHalignment(headingLabel, HPos.CENTER);
 
-            //Label Margin is Set
-            GridPane.setMargin(headingLabel, new Insets(20, 0, 20, 0));
+        //Label Margin is Set
+        GridPane.setMargin(headingLabel, new Insets(20, 0, 20, 0));
 
-            // Add firstName Label
-            //A label variable is created
-            Label addFirstNameLabel;
+        // Add firstName Label
+        //A label variable is created
+        Label addFirstNameLabel;
 
-            //The label is initialized
-            addFirstNameLabel = new Label("First Name : ");
+        //The label is initialized
+        addFirstNameLabel = new Label("First Name : ");
 
-            //Label is added to GridPane
-            myGrid.add(addFirstNameLabel, 0, 1);
+        //Label is added to GridPane
+        myGrid.add(addFirstNameLabel, 0, 1);
 
-            //Adding TextFields
-            // TextField Variable is created
-            TextField addFirstNameField;
+        //Adding TextFields
+        // TextField Variable is created
+        TextField addFirstNameField;
 
-            //Our TextField is initialized
-            addFirstNameField = new TextField();
+        //Our TextField is initialized
+        addFirstNameField = new TextField();
 
-            //Preferred Height for TextField is set
-            addFirstNameField.setPrefHeight(40);
+        //Preferred Height for TextField is set
+        addFirstNameField.setPrefHeight(40);
 
-            //TextField is added to GridPane
-            myGrid.add(addFirstNameField, 1, 1);
+        //TextField is added to GridPane
+        myGrid.add(addFirstNameField, 1, 1);
 
-            // Add lastName Label
-            Label addLastNameLabel = new Label("Last Name: ");
+        // Add lastName Label
+        Label addLastNameLabel = new Label("Last Name: ");
 
-            //Label is added to GridPane
-            myGrid.add(addLastNameLabel, 0, 2);
+        //Label is added to GridPane
+        myGrid.add(addLastNameLabel, 0, 2);
 
-            // Add last Name Field
-            TextField addLastNameField;
+        // Add last Name Field
+        TextField addLastNameField;
 
-            // Our TextField is Initialized
-            addLastNameField = new TextField();
+        // Our TextField is Initialized
+        addLastNameField = new TextField();
 
-            //Preferred Height for TExtfield is Set
-            addLastNameField.setPrefHeight(40);
+        //Preferred Height for TExtfield is Set
+        addLastNameField.setPrefHeight(40);
 
-            //Add TextField to GridPane
-            myGrid.add(addLastNameField, 1, 2);
+        //Add TextField to GridPane
+        myGrid.add(addLastNameField, 1, 2);
 
-            // Label variable
-            Label addStudentEmailLabel;
+        // Label variable
+        Label addStudentEmailLabel;
 
-            // mailFromLabel is initialized
-            addStudentEmailLabel = new Label("Student Mail: ");
+        // mailFromLabel is initialized
+        addStudentEmailLabel = new Label("Student Email: ");
 
-            //Add Label to GridPane
-            myGrid.add(addStudentEmailLabel, 0, 3);
+        //Add Label to GridPane
+        myGrid.add(addStudentEmailLabel, 0, 3);
 
-            // Text Variable is created
-            TextField addStudentEmailField;
+        // Text Variable is created
+        TextField addStudentEmailField;
 
-            // Variable mailFromField is initialized
-            addStudentEmailField = new TextField();
+        // Variable mailFromField is initialized
+        addStudentEmailField = new TextField();
 
-            //Preferred Height of TextField is Set
-            addStudentEmailField.setPrefHeight(40);
+        //Preferred Height of TextField is Set
+        addStudentEmailField.setPrefHeight(40);
 
-            //Add TextField to GridPane
-            myGrid.add(addStudentEmailField, 1, 3);
+        //Add TextField to GridPane
+        myGrid.add(addStudentEmailField, 1, 3);
 
-            // Add send Email Button
-            //Button Variable is created
-            Button addMyStudent;
+        // Add send Email Button
+        //Button Variable is created
+        Button addMyStudent;
 
-            //Variable sendEmailButton is initialized
-            addMyStudent = new Button("Add Student");
+        //Variable sendEmailButton is initialized
+        addMyStudent = new Button("Add Student");
 
-            //Button Preferred Height is set
-            addMyStudent.setPrefHeight(40);
-            addMyStudent.setDefaultButton(true);
+        //Button Preferred Height is set
+        addMyStudent.setPrefHeight(40);
+        addMyStudent.setDefaultButton(true);
 
-            //Button Preferred Width is set
-            addMyStudent.setPrefWidth(100);
+        //Button Preferred Width is set
+        addMyStudent.setPrefWidth(100);
 
-            //Button is added to GridPane
-            myGrid.add(addMyStudent, 0, 4, 2, 1);
+        //Button is added to GridPane
+        myGrid.add(addMyStudent, 0, 4, 2, 1);
 
-            //Horizontal Alignment of Button is Set
-            GridPane.setHalignment(addMyStudent, HPos.CENTER);
+        //Horizontal Alignment of Button is Set
+        GridPane.setHalignment(addMyStudent, HPos.CENTER);
 
-            //Margin of Button is set
-            GridPane.setMargin(addMyStudent, new Insets(20, 0, 20, 0));
+        //Margin of Button is set
+        GridPane.setMargin(addMyStudent, new Insets(20, 0, 20, 0));
 
-            //Set functionality for 'Add Student' Button
-            addMyStudent.setOnAction(new EventHandler<ActionEvent>() {
+        //Set functionality for 'Add Student' Button
+        addMyStudent.setOnAction(new EventHandler<ActionEvent>() {
 
-                //Override
-                @Override
+            //Override
+            @Override
 
-                //Handle Method
-                public void handle(ActionEvent event) {
+            //Handle Method
+            public void handle(ActionEvent event) {
 
-                    //If firstNameField is Empty, declares Alert
-                    if (addFirstNameField.getText().isEmpty()) {
-                        showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Please enter your First Name");
-                        return;
+                //If firstNameField is Empty, declares Alert
+                if (addFirstNameField.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Please enter your First Name");
+                    return;
+                }
+
+                ////If Last name field is empty, break operation and alert
+                if (addLastNameField.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Please enter your Last Name");
+                    return;
+                }
+
+                //If mailFrom field is empty, break operation and alert
+                if (addStudentEmailField.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Please Enter the Student Email");
+                    return;
+                }
+
+                //If email cannot be found, or is missing in database, break operation and alert!
+                //Calls in getEmail methof
+                if (getEmail(addStudentEmailField.getText(), addLastNameField.getText()) != null) {
+                    showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Email Already Exists!");
+                    return;
+                }
+
+
+                //Create String variable
+                String myEmail;
+
+                //Call getEmail class and assigns the string as the created String Variable
+                myEmail = addStudentEmailField.getText();
+
+                //Capitalize First Name
+                //Create String Variables
+                String first;
+                String firstName;
+
+                //Assign firstNameField text to first String variable
+                first = addFirstNameField.getText();
+
+                // capitalize first letter of initialize String
+                //Merge first letter of initialized string with corresponding Substring
+                //Assign new String to second String variable
+                firstName = first.substring(0, 1).toUpperCase() + first.substring(1);
+
+                //Capitalize Last Name
+                //Create String Variables
+                String last;
+                String lastName;
+
+                //Assign lastNameField text to the first String variable
+                last = addLastNameField.getText();
+
+                // capitalize first letter of initialized String
+                //Merge first letter of initialized string with corresponding substring
+                //Assign new String to second String variable
+                lastName = last.substring(0, 1).toUpperCase() + last.substring(1);
+
+                //Capitalize First letter of mailFrom field
+                //Create String Variables
+                //Method to throw and catch exceptions in Email sending
+                //Try tree
+
+                //Utilizes the Preference class to store user choices
+                //Creates Preferences Variable
+                Preferences prefs;
+
+                //Initializes the Preferences variable
+                prefs = Preferences.userRoot().node(getClass().getName());
+
+                //Object of the static alert method
+                //Create ALert variable
+                Alert alert;
+
+                alert = createAlertWithOptOut(AlertType.CONFIRMATION, "Add Student Confirmation",
+                        null, "Are you sure you wish to add this student?", "Do not ask again",
+                        param -> prefs.put(null, param ? "Always" : "Never"), ButtonType.YES, ButtonType.NO);
+
+                //If choice is YES, JVM closes
+                if (alert.showAndWait().filter(t -> t == ButtonType.YES).isPresent()) {
+
+                    //Try Method
+                    try {
+                        //Runs our addStudents method
+                        addStudents(firstName, lastName, myEmail);
+
+                        //Then run the readStudents method recursively
+                        readStudents("src/addresses.txt");
+                        showAlert(AlertType.CONFIRMATION, myGrid.getScene().getWindow(),
+                                "Success!", "Student Addition Successful!");
                     }
 
-                    ////If Last name field is empty, break operation and alert
-                    if (addLastNameField.getText().isEmpty()) {
-                        showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Please enter your Last Name");
-                        return;
+                    //Catch for any exceptions
+                    catch (IOException e) {
+                        //System.out.println("Message Transmission failed. Try Again Later.");
+                        showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(),
+                                "Process Failed!", "Student Addition Failed! Try Again Later");
                     }
 
-                    //If mailFrom field is empty, break operation and alert
-                    if (addStudentEmailField.getText().isEmpty()) {
-                        showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Please Enter the Student Email");
-                        return;
-                    }
-
-                    //If email cannot be found, or is missing in database, break operation and alert!
-                    //Calls in getEmail methof
-                    if (getEmail(addStudentEmailField.getText(), addLastNameField.getText()) != null) {
-                        showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(), "Form Error!", "Email Already Exists!");
-                        return;
-                    }
-
-
-                    //Create String variable
-                    String myEmail;
-
-                    //Call getEmail class and assigns the string as the created String Variable
-                    myEmail = addStudentEmailField.getText();
-
-                    //Capitalize First Name
-                    //Create String Variables
-                    String first;
-                    String firstName;
-
-                    //Assign firstNameField text to first String variable
-                    first = addFirstNameField.getText();
-
-                    // capitalize first letter of initialize String
-                    //Merge first letter of initialized string with corresponding Substring
-                    //Assign new String to second String variable
-                    firstName = first.substring(0, 1).toUpperCase() + first.substring(1);
-
-                    //Capitalize Last Name
-                    //Create String Variables
-                    String last;
-                    String lastName;
-
-                    //Assign lastNameField text to the first String variable
-                    last = addLastNameField.getText();
-
-                    // capitalize first letter of initialized String
-                    //Merge first letter of initialized string with corresponding substring
-                    //Assign new String to second String variable
-                    lastName = last.substring(0, 1).toUpperCase() + last.substring(1);
-
-                    //Capitalize First letter of mailFrom field
-                    //Create String Variables
-                    //Method to throw and catch exceptions in Email sending
-                    //Try tree
-
-                    //Utilizes the Preference class to store user choices
-                    //Creates Preferences Variable
-                    Preferences prefs;
-
-                    //Initializes the Preferences variable
-                    prefs = Preferences.userRoot().node(getClass().getName());
-
-                    //Object of the static alert method
-                    //Create ALert variable
-                    Alert alert;
-
-                    alert = createAlertWithOptOut(AlertType.CONFIRMATION, "Add Student Confirmation",
-                            null, "Are you sure you wish to add this student?", "Do not ask again",
-                            param -> prefs.put(null, param ? "Always" : "Never"), ButtonType.YES, ButtonType.NO);
-
-                    //If choice is YES, JVM closes
-                    if (alert.showAndWait().filter(t -> t == ButtonType.YES).isPresent()) {
-
-                        //Try Method
-                        try {
-                            //Runs our addStudents method
-                            addStudents(firstName, lastName, myEmail);
-
-                            //Then run the readStudents method recursively
-                            readStudents("src/addresses.txt");
-                        }
-
-                        //Catch for any exceptions
-                        catch (IOException e) {
-                            //System.out.println("Message Transmission failed. Try Again Later.");
-                            showAlert(Alert.AlertType.ERROR, myGrid.getScene().getWindow(),
-                                    "Process Failed!", "Student Addition Failed! Try Again Later");
-                        }
-
-                    }
+                }
 
             }
         });
     }
 
 
-        //ShowAlert Method
-        private static void showAlert (Alert.AlertType alertType, Window owner, String title, String message){
+    //ShowAlert Method
+    private static void showAlert (Alert.AlertType alertType, Window owner, String title, String message){
 
-            //Create Alert Variable
-            Alert alert;
+        //Create Alert Variable
+        Alert alert;
 
-            //Initializes the alert variable
-            alert = new Alert(alertType);
+        //Initializes the alert variable
+        alert = new Alert(alertType);
 
-            //SET ALERT PARAMETERS
-            alert.setTitle(title);
-            alert.setHeaderText(null);
-            alert.setContentText(message);
-            alert.initOwner(owner);
-            alert.show();
+        //SET ALERT PARAMETERS
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
 
-            //END of showAlert method
-        }
-
-        //Alert Method for Opt out option with preferences for storage
-        public static Alert createAlertWithOptOut (AlertType type, String title,
-                String headerText, String message, String optOutMessage,
-                Consumer < Boolean > optOutAction, ButtonType...buttonTypes){
-
-            //Alert variable is created
-            Alert alert;
-
-            //Alert variable is initialized
-            alert = new Alert(type);
-            // Need to force the alert to layout in order to grab the graphic,
-            // as we are replacing the dialog pane with a custom pane
-            alert.getDialogPane().applyCss();
-
-            //Create Node variable
-            Node graphic;
-
-            //Initialize Node variable
-            graphic = alert.getDialogPane().getGraphic();
-            // Create a new dialog pane that has a checkbox instead of the hide/show details button
-            // Use the supplied callback for the action of the checkbox
-
-            alert.setDialogPane(new DialogPane() {
-                @Override
-
-                //OptOut Functionalities
-                protected Node createDetailsButton() {
-
-                    //Creates Checkbox variable
-                    CheckBox optOut;
-
-                    //CheckBox variable is initialized
-                    optOut = new CheckBox();
-                    optOut.setText(optOutMessage);
-                    optOut.setOnAction(e -> optOutAction.accept(optOut.isSelected()));
-                    return optOut;
-
-                    //Node functionalities
-                }
-
-                //END of dialogPane handler
-            });
-
-            alert.getDialogPane().getButtonTypes().addAll(buttonTypes);
-            alert.getDialogPane().setContentText(message);
-
-            // Fool the dialog into thinking there is some expandable content
-            // a Group won't take up any space if it has no children
-
-            alert.getDialogPane().setExpandableContent(new Group());
-            alert.getDialogPane().setExpanded(true);
-
-            // Reset the dialog graphic using the default style
-            alert.getDialogPane().setGraphic(graphic);
-            alert.setTitle(title);
-            alert.setHeaderText(headerText);
-            return alert;
-        }
-
-
-
-        //MAIN METHOD
-        public static void main (String[]args)
-        {
-            launch(args);
-
-            //END of MAIN METHOD
-        }
-
-        //End of Program's Class
+        //END of showAlert method
     }
+
+    //Alert Method for Opt out option with preferences for storage
+    public static Alert createAlertWithOptOut (AlertType type, String title,
+                                               String headerText, String message, String optOutMessage,
+                                               Consumer < Boolean > optOutAction, ButtonType...buttonTypes){
+
+        //Alert variable is created
+        Alert alert;
+
+        //Alert variable is initialized
+        alert = new Alert(type);
+        // Need to force the alert to layout in order to grab the graphic,
+        // as we are replacing the dialog pane with a custom pane
+        alert.getDialogPane().applyCss();
+
+        //Create Node variable
+        Node graphic;
+
+        //Initialize Node variable
+        graphic = alert.getDialogPane().getGraphic();
+        // Create a new dialog pane that has a checkbox instead of the hide/show details button
+        // Use the supplied callback for the action of the checkbox
+
+        alert.setDialogPane(new DialogPane() {
+            @Override
+
+            //OptOut Functionalities
+            protected Node createDetailsButton() {
+
+                //Creates Checkbox variable
+                CheckBox optOut;
+
+                //CheckBox variable is initialized
+                optOut = new CheckBox();
+                optOut.setText(optOutMessage);
+                optOut.setOnAction(e -> optOutAction.accept(optOut.isSelected()));
+                return optOut;
+
+                //Node functionalities
+            }
+
+            //END of dialogPane handler
+        });
+
+        alert.getDialogPane().getButtonTypes().addAll(buttonTypes);
+        alert.getDialogPane().setContentText(message);
+
+        // Fool the dialog into thinking there is some expandable content
+        // a Group won't take up any space if it has no children
+
+        alert.getDialogPane().setExpandableContent(new Group());
+        alert.getDialogPane().setExpanded(true);
+
+        // Reset the dialog graphic using the default style
+        alert.getDialogPane().setGraphic(graphic);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        return alert;
+    }
+
+
+
+    //MAIN METHOD
+    public static void main (String[]args)
+    {
+
+        launch(args);
+
+        //END of MAIN METHOD
+    }
+
+    //End of Program's Class
+}
