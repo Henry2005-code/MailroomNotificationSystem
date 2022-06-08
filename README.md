@@ -27,7 +27,7 @@ Team Members:
 # Licenses
 MIT License
 
-Copyright (c) [2022] [Oreoluwa Owoseeni]
+Copyright (c) [2022] [Oreoluwa Owoseeni, Henry Fowobaje, Shalom Akinbulomo]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
